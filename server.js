@@ -9,6 +9,9 @@ dotenv.config();
 const url = process.env.MONGODB_URI;
 const app = express();
 const port = process.env.PORT || 3000;
+const userRoute = require('./routes/userRoute');
+
+app.use('/api/users', userRoute);
 
 
 app.use(cors());
