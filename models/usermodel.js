@@ -22,5 +22,11 @@ const userSchema = new Schema({
         required: true,
         minlength: 5,
         max_length: 1024
-    }
+    },
+    timestamps: true
 });
+
+
+const UserModel = mongoose.model('User', userSchema);
+
+module.exports = UserModel;
