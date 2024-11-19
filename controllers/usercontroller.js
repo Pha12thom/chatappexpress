@@ -54,4 +54,15 @@ const login = async(req, res) => {
     res.status(200).json({ token, user });
 }
 
-module.exports = { register, login };
+const findUser = async(req, res) => {
+    const userId = req.params.userId;
+    try {
+        const user = await UserModel.findById(userId);
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json(error);
+    }
+
+}
+
+module.exports = { register, login, findUser };
